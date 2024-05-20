@@ -20,7 +20,7 @@ void setup() {
 void setKey(int pin, uint16_t key) {
   if (digitalRead(pin) == LOW) {
     Consumer.press(key);
-  } else {
+    while (digitalRead(pin) == LOW) {}
     Consumer.release(key);
   }
 }
